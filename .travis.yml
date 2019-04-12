@@ -5,149 +5,156 @@ branches:
     - /^(wip\/)?(appveyor|msvc|mingw|windows)(\-.+)?$/
 matrix:
   include:
-    ###
-    ## Linux builds using various versions of GCC.
-    ###
-    - env: C_COMPILER=gcc-7 CXX_COMPILER=g++-7
-      addons:
-        apt:
-          sources:
-          - ubuntu-toolchain-r-test
-          packages:
-          - gcc-7
-          - g++-7
-    - env: C_COMPILER=gcc-6 CXX_COMPILER=g++-6
-      addons:
-        apt:
-          sources:
-          - ubuntu-toolchain-r-test
-          packages:
-          - gcc-6
-          - g++-6
-    - env: C_COMPILER=gcc-5 CXX_COMPILER=g++-5
-      addons:
-        apt:
-          sources:
-          - ubuntu-toolchain-r-test
-          packages:
-          - gcc-5
-          - g++-5
-    - env: C_COMPILER=gcc-4.9 CXX_COMPILER=g++-4.9
-      addons:
-        apt:
-          sources:
-          - ubuntu-toolchain-r-test
-          packages:
-          - gcc-4.9
-          - g++-4.9
-    - env: C_COMPILER=gcc-4.8 CXX_COMPILER=g++-4.8
-      addons:
-        apt:
-          sources:
-          - ubuntu-toolchain-r-test
-          packages:
-          - gcc-4.8
-          - g++-4.8
-    - env: C_COMPILER=gcc-4.7 CXX_COMPILER=g++-4.7
-      addons:
-        apt:
-          sources:
-          - ubuntu-toolchain-r-test
-          packages:
-          - gcc-4.7
-          - g++-4.7
-    - env: C_COMPILER=gcc-4.6 CXX_COMPILER=g++-4.6
-      addons:
-        apt:
-          sources:
-          - ubuntu-toolchain-r-test
-          packages:
-          - gcc-4.6
-          - g++-4.6
-    - env: C_COMPILER=gcc-4.4 CXX_COMPILER=g++-4.4
-      addons:
-        apt:
-          sources:
-          - ubuntu-toolchain-r-test
-          packages:
-          - gcc-4.4
-          - g++-4.4
-
-    ###
-    ## clang on Linux
-    ###
-    # - env: C_COMPILER=clang-4.0 CXX_COMPILER=clang++-4.0
+    # ###
+    # ## Linux builds using various versions of GCC.
+    # ###
+    # - env: C_COMPILER=gcc-7 CXX_COMPILER=g++-7
     #   addons:
     #     apt:
     #       sources:
-    #       - llvm-toolchain-precise-4.0
     #       - ubuntu-toolchain-r-test
     #       packages:
-    #       - clang-4.0
-    - env: C_COMPILER=clang-3.9 CXX_COMPILER=clang++-3.9
-      addons:
-        apt:
-          sources:
-          - llvm-toolchain-precise-3.9
-          - ubuntu-toolchain-r-test
-          packages:
-          - clang-3.9
-    - env: C_COMPILER=clang-3.8 CXX_COMPILER=clang++-3.8
-      addons:
-        apt:
-          sources:
-          - llvm-toolchain-precise-3.8
-          - ubuntu-toolchain-r-test
-          packages:
-          - clang-3.8
-    - env: C_COMPILER=clang-3.7 CXX_COMPILER=clang++-3.7
-      addons:
-        apt:
-          sources:
-          - llvm-toolchain-precise-3.7
-          - ubuntu-toolchain-r-test
-          packages:
-          - clang-3.7
-    - env: C_COMPILER=clang-3.6 CXX_COMPILER=clang++-3.6
-      addons:
-        apt:
-          sources:
-          - llvm-toolchain-precise-3.6
-          - ubuntu-toolchain-r-test
-          packages:
-          - clang-3.6
-    - env: C_COMPILER=clang-3.5 CXX_COMPILER=clang++-3.5
-      addons:
-        apt:
-          sources:
-          - llvm-toolchain-precise-3.5
-          - ubuntu-toolchain-r-test
-          packages:
-          - clang-3.5
+    #       - gcc-7
+    #       - g++-7
+    # - env: C_COMPILER=gcc-6 CXX_COMPILER=g++-6
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - gcc-6
+    #       - g++-6
+    # - env: C_COMPILER=gcc-5 CXX_COMPILER=g++-5
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - gcc-5
+    #       - g++-5
+    # - env: C_COMPILER=gcc-4.9 CXX_COMPILER=g++-4.9
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - gcc-4.9
+    #       - g++-4.9
+    # - env: C_COMPILER=gcc-4.8 CXX_COMPILER=g++-4.8
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - gcc-4.8
+    #       - g++-4.8
+    # - env: C_COMPILER=gcc-4.7 CXX_COMPILER=g++-4.7
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - gcc-4.7
+    #       - g++-4.7
+    # - env: C_COMPILER=gcc-4.6 CXX_COMPILER=g++-4.6
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - gcc-4.6
+    #       - g++-4.6
+    # - env: C_COMPILER=gcc-4.4 CXX_COMPILER=g++-4.4
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - gcc-4.4
+    #       - g++-4.4
+
+    # ###
+    # ## clang on Linux
+    # ###
+    # # - env: C_COMPILER=clang-4.0 CXX_COMPILER=clang++-4.0
+    # #   addons:
+    # #     apt:
+    # #       sources:
+    # #       - llvm-toolchain-precise-4.0
+    # #       - ubuntu-toolchain-r-test
+    # #       packages:
+    # #       - clang-4.0
+    # - env: C_COMPILER=clang-3.9 CXX_COMPILER=clang++-3.9
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - llvm-toolchain-precise-3.9
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - clang-3.9
+    # - env: C_COMPILER=clang-3.8 CXX_COMPILER=clang++-3.8
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - llvm-toolchain-precise-3.8
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - clang-3.8
+    # - env: C_COMPILER=clang-3.7 CXX_COMPILER=clang++-3.7
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - llvm-toolchain-precise-3.7
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - clang-3.7
+    # - env: C_COMPILER=clang-3.6 CXX_COMPILER=clang++-3.6
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - llvm-toolchain-precise-3.6
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - clang-3.6
+    # - env: C_COMPILER=clang-3.5 CXX_COMPILER=clang++-3.5
+    #   addons:
+    #     apt:
+    #       sources:
+    #       - llvm-toolchain-precise-3.5
+    #       - ubuntu-toolchain-r-test
+    #       packages:
+    #       - clang-3.5
+
+    # ###
+    # ## PGI
+    # ###
+    # - env: C_COMPILER=pgcc CXX_COMPILER=pgc++
+
+    # ###
+    # ## OS X
+    # ###
+    # - os: osx
+
+    # ###
+    # ## mingw
+    # ###
+    # - env: C_COMPILER=x86_64-w64-mingw32-gcc CXX_COMPILER=x86_64-w64-mingw32-g++
+    #   addons:
+    #     apt:
+    #       packages:
+    #       - gcc-mingw-w64-x86-64
+    #       - g++-mingw-w64-x86-64
+    #       - binutils-mingw-w64-x86-64
 
     ###
-    ## PGI
+    ## TI
+    ## http://www.ti.com/tool/download/C6000-CGT-8-3
     ###
-    - env: C_COMPILER=pgcc CXX_COMPILER=pgc++
-
-    ###
-    ## OS X
-    ###
-    - os: osx
-
-    ###
-    ## mingw
-    ###
-    - env: C_COMPILER=x86_64-w64-mingw32-gcc CXX_COMPILER=x86_64-w64-mingw32-g++
-      addons:
-        apt:
-          packages:
-          - gcc-mingw-w64-x86-64
-          - g++-mingw-w64-x86-64
-          - binutils-mingw-w64-x86-64
+    - env: C_COMPILER=cl6x CXX_COMPILER=cl6x
 
 before_install:
 - if [ "${C_COMPILER}" = "pgcc" ]; then wget -q -O /dev/stdout 'https://raw.githubusercontent.com/nemequ/pgi-travis/master/install-pgi.sh' | /bin/sh; fi
+- if [ "${C_COMPILER}" = "cl6x" ]; then wget -O "$HOME/ti_cgt_c6000_8.3.3_linux_installer_x86.bin" "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C6000/8.3.3/ti_cgt_c6000_8.3.3_linux_installer_x86.bin" && chmod u+x "$HOME/ti_cgt_c6000_8.3.3_linux_installer_x86.bin" && "$HOME/ti_cgt_c6000_8.3.3_linux_installer_x86.bin" --unattendedmodeui none --mode unattended --prefix "$HOME"; export C_COMPILER="$HOME/ti-cgt-c6000_8.3.3/bin/cl6x"; export CXX_COMPILER="$HOME/ti-cgt-c6000_8.3.3/bin/cl6x"; fi
 - if [ -n "${C_COMPILER}" ]; then export CC="${C_COMPILER}"; fi
 - if [ -n "${CXX_COMPILER}" ]; then export CXX="${CXX_COMPILER}"; fi
 

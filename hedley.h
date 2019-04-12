@@ -605,7 +605,7 @@
 #elif HEDLEY_MSVC_VERSION_CHECK(15,0,0)
 #  define HEDLEY_DIAGNOSTIC_DISABLE_DEPRECATED __pragma(warning(disable:4996))
 #elif HEDLEY_TI_VERSION_CHECK(8,0,0)
-#  define HEDLEY_DIAGNOSTIC_DISABLE_DEPRECATED _Pragma("diag_suppress 1291")
+#  define HEDLEY_DIAGNOSTIC_DISABLE_DEPRECATED _Pragma("diag_suppress 1291,1718")
 #elif HEDLEY_SUNPRO_VERSION_CHECK(5,13,0) && !defined(__cplusplus)
 #  define HEDLEY_DIAGNOSTIC_DISABLE_DEPRECATED _Pragma("error_messages(off,E_DEPRECATED_ATT,E_DEPRECATED_ATT_MESS)")
 #elif HEDLEY_SUNPRO_VERSION_CHECK(5,13,0) && defined(__cplusplus)
@@ -667,7 +667,8 @@
   HEDLEY_INTEL_VERSION_CHECK(13,0,0) || \
   HEDLEY_ARM_VERSION_CHECK(5,6,0) || \
   HEDLEY_SUNPRO_VERSION_CHECK(5,13,0) || \
-  HEDLEY_PGI_VERSION_CHECK(17,10,0)
+  HEDLEY_PGI_VERSION_CHECK(17,10,0) || \
+  HEDLEY_TI_VERSION_CHECK(8,3,0)
 #  define HEDLEY_DEPRECATED(since) __attribute__((__deprecated__("Since " #since)))
 #  define HEDLEY_DEPRECATED_FOR(since, replacement) __attribute__((__deprecated__("Since " #since "; use " #replacement)))
 #elif \
@@ -1300,7 +1301,8 @@ HEDLEY_DIAGNOSTIC_POP
 #  define HEDLEY_STATIC_ASSERT(expr, message) _Static_assert(expr, message)
 #elif \
   (defined(__cplusplus) && (__cplusplus >= 201703L)) || \
-  HEDLEY_MSVC_VERSION_CHECK(16,0,0)
+  HEDLEY_MSVC_VERSION_CHECK(16,0,0) || \
+  (defined(__cplusplus) && HEDLEY_TI_VERSION_CHECK(8,3,0))
 #  define HEDLEY_STATIC_ASSERT(expr, message) static_assert(expr, message)
 #elif defined(__cplusplus) && (__cplusplus >= 201103L)
 #  define HEDLEY_STATIC_ASSERT(expr, message) static_assert(expr)
